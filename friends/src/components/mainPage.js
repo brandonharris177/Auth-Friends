@@ -1,12 +1,32 @@
-import React, {useState} from "react";
-import axios from 'axios';
+import React, {useState, useEffect} from "react";
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
-const mainPage= (props) => {
+const MainPage = (props) => {
+    const [freinds, setFriends] = useState([])
+
+    useEffect(() => {
+        axiosWithAuth()
+        .get(`http://localhost:5000/api/friends`)
+        .then(res => {
+            console.log(res)
+            setFriends(res.data)
+            })
+          .catch(err => console.log(err));
+
+    }, [])
+
     return (
         <>
          its working mainPage
+        {freinds.map(freind => {
+            return <h1 key = {freind.id}>{freind.name}</h1>})}
         </>
     )
 }
 
-export default mainPage
+export default MainPage
+
+// res.data.map(freind => {
+//         <div>
+//             <h1>{freind.name}</h1>
+//         </div>

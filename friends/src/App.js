@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Route path="/login" component = {Login} />
-      Its Working
+      {/* Its Working */}
       {/* <Login /> */}
       <Route path = "/mainPage" component = {mainPage} />
     </div>
