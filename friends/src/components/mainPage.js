@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import axiosWithAuth from '../utils/axiosWithAuth';
+import AddFriend from './addFriend';
 
 const MainPage = (props) => {
     const [freinds, setFriends] = useState([])
@@ -17,7 +18,8 @@ const MainPage = (props) => {
 
     return (
         <>
-         its working mainPage
+        <AddFriend props = {freinds, setFriends}/>
+         {/* its working mainPage */}
         {freinds.map(freind => {
             return <h1 key = {freind.id}>{freind.name}</h1>})}
         </>
@@ -25,8 +27,3 @@ const MainPage = (props) => {
 }
 
 export default MainPage
-
-// res.data.map(freind => {
-//         <div>
-//             <h1>{freind.name}</h1>
-//         </div>
