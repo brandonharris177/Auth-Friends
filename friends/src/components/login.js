@@ -14,7 +14,7 @@ const Login = () => {
     axiosWithAuth()
       .post('http://localhost:5000/api/login', credentials)
       .then(res => {
-        // localStorage.setItem('token', res.data.payload);
+        localStorage.setItem('token', res.data.payload);
         // redirect to the apps main page?
         // history.push('/protected');
         console.log(res)
