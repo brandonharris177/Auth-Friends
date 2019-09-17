@@ -1,16 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 import './App.css';
 import Login from './components/login'
+import mainPage from './components/mainPage'
 // import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
     <div className="App">
-      <Link to="/login">Login</Link>
+      <Route path="/login" component = {Login} />
       Its Working
-      <Login />
+      {/* <Login /> */}
+      <Route path = "/mainPage" component = {mainPage} />
     </div>
   );
 }
